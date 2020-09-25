@@ -14,27 +14,27 @@ export USER_OFFICE_SCHEDULER_BACKEND_DIR="$REPO_DIR/user-office-scheduler-backen
 
 setup_user_office_gateway() {
   rm -rf "$USER_OFFICE_GATEWAY_DIR"
-  git clone git@github.com:UserOfficeProject/user-office-gateway.git --depth 1 "$USER_OFFICE_GATEWAY_DIR"
+  git clone https://github.com/UserOfficeProject/user-office-gateway.git --depth 1 "$USER_OFFICE_GATEWAY_DIR"
 }
 
 setup_user_office_frontend() {
   rm -rf "$USER_OFFICE_FRONTEND_DIR"
-  git clone git@github.com:UserOfficeProject/user-office-frontend.git --depth 1 "$USER_OFFICE_FRONTEND_DIR"
+  git clone https://github.com/UserOfficeProject/user-office-frontend.git --depth 1 "$USER_OFFICE_FRONTEND_DIR"
 }
 
 setup_user_office_backend() {
   rm -rf "$USER_OFFICE_BACKEND_DIR"
-  git clone git@github.com:UserOfficeProject/user-office-backend.git --depth 1 "$USER_OFFICE_BACKEND_DIR"
+  git clone https://github.com/UserOfficeProject/user-office-backend.git --depth 1 "$USER_OFFICE_BACKEND_DIR"
 }
 
 setup_user_office_scheduler_frontend() {
   rm -rf "$USER_OFFICE_SCHEDULER_FRONTEND_DIR"
-  git clone git@github.com:UserOfficeProject/user-office-scheduler-frontend.git --depth 1 "$USER_OFFICE_SCHEDULER_FRONTEND_DIR"
+  git clone https://github.com/UserOfficeProject/user-office-scheduler-frontend.git --depth 1 "$USER_OFFICE_SCHEDULER_FRONTEND_DIR"
 }
 
 setup_user_office_scheduler_backend() {
   rm -rf "$USER_OFFICE_SCHEDULER_BACKEND_DIR"
-  git clone git@github.com:UserOfficeProject/user-office-scheduler-backend.git --depth 1 "$USER_OFFICE_SCHEDULER_BACKEND_DIR"
+  git clone https://github.com/UserOfficeProject/user-office-scheduler-backend.git --depth 1 "$USER_OFFICE_SCHEDULER_BACKEND_DIR"
 }
 
 clean_repositories() {
