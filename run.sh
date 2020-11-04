@@ -12,6 +12,8 @@ export USER_OFFICE_BACKEND_DIR="$REPO_DIR/user-office-backend"
 export USER_OFFICE_SCHEDULER_FRONTEND_DIR="$REPO_DIR/user-office-scheduler-frontend"
 export USER_OFFICE_SCHEDULER_BACKEND_DIR="$REPO_DIR/user-office-scheduler-backend"
 
+export USER_OFFICE_FACTORY_DIR="$REPO_DIR/user-office-factory"
+
 setup_user_office_gateway() {
   rm -rf "$USER_OFFICE_GATEWAY_DIR"
   git clone https://github.com/UserOfficeProject/user-office-gateway.git --depth 1 "$USER_OFFICE_GATEWAY_DIR"
@@ -37,6 +39,11 @@ setup_user_office_scheduler_backend() {
   git clone https://github.com/UserOfficeProject/user-office-scheduler-backend.git --depth 1 "$USER_OFFICE_SCHEDULER_BACKEND_DIR"
 }
 
+setup_user_office_factory() {
+  rm -rf "$USER_OFFICE_FACTORY_DIR"
+  git clone https://github.com/UserOfficeProject/user-office-factory.git --depth 1 "$USER_OFFICE_FACTORY_DIR"
+}
+
 clean_repositories() {
   rm -rf "$REPO_DIR"
 }
@@ -52,6 +59,7 @@ case $1 in
     setup_user_office_backend
     setup_user_office_scheduler_frontend
     setup_user_office_scheduler_backend
+    setup_user_office_factory
   ;;
   down:all)
     docker-compose \
@@ -61,6 +69,7 @@ case $1 in
       -f "$USER_OFFICE_GATEWAY_DIR/docker-compose.dev.yml" \
       -f "$USER_OFFICE_SCHEDULER_BACKEND_DIR/docker-compose.dev.yml" \
       -f "$USER_OFFICE_SCHEDULER_FRONTEND_DIR/docker-compose.dev.yml" \
+      -f "$USER_OFFICE_FACTORY_DIR/docker-compose.dev.yml" \
       down -v --rmi local
   ;;
   up:all)
@@ -71,6 +80,7 @@ case $1 in
       -f "$USER_OFFICE_GATEWAY_DIR/docker-compose.dev.yml" \
       -f "$USER_OFFICE_SCHEDULER_BACKEND_DIR/docker-compose.dev.yml" \
       -f "$USER_OFFICE_SCHEDULER_FRONTEND_DIR/docker-compose.dev.yml" \
+      -f "$USER_OFFICE_FACTORY_DIR/docker-compose.dev.yml" \
       up -d --build
   ;;
 
@@ -78,6 +88,7 @@ case $1 in
     setup_user_office_gateway
     setup_user_office_frontend
     setup_user_office_backend
+    setup_user_office_factory
   ;;
   down:user-office)
     docker-compose \
@@ -85,6 +96,7 @@ case $1 in
       -f "$USER_OFFICE_FRONTEND_DIR/docker-compose.dev.yml" \
       -f "$USER_OFFICE_BACKEND_DIR/docker-compose.dev.yml" \
       -f "$USER_OFFICE_GATEWAY_DIR/docker-compose.dev.yml" \
+      -f "$USER_OFFICE_FACTORY_DIR/docker-compose.dev.yml" \
       down -v --rmi local
   ;;
   up:user-office)
@@ -97,6 +109,7 @@ case $1 in
       -f "$USER_OFFICE_FRONTEND_DIR/docker-compose.dev.yml" \
       -f "$USER_OFFICE_BACKEND_DIR/docker-compose.dev.yml" \
       -f "$USER_OFFICE_GATEWAY_DIR/docker-compose.dev.yml" \
+      -f "$USER_OFFICE_FACTORY_DIR/docker-compose.dev.yml" \
       up -d --build
   ;;
 
@@ -106,6 +119,7 @@ case $1 in
     setup_user_office_backend
     setup_user_office_scheduler_frontend
     setup_user_office_scheduler_backend
+    setup_user_office_factory
   ;;
   down:scheduler)
     docker-compose \
@@ -113,6 +127,7 @@ case $1 in
       -f "$USER_OFFICE_GATEWAY_DIR/docker-compose.dev.yml" \
       -f "$USER_OFFICE_SCHEDULER_BACKEND_DIR/docker-compose.dev.yml" \
       -f "$USER_OFFICE_SCHEDULER_FRONTEND_DIR/docker-compose.dev.yml" \
+      -f "$USER_OFFICE_FACTORY_DIR/docker-compose.dev.yml" \
       down -v --rmi local
   ;;
   up:scheduler)
@@ -125,6 +140,7 @@ case $1 in
       -f "$USER_OFFICE_GATEWAY_DIR/docker-compose.dev.yml" \
       -f "$USER_OFFICE_SCHEDULER_BACKEND_DIR/docker-compose.dev.yml" \
       -f "$USER_OFFICE_SCHEDULER_FRONTEND_DIR/docker-compose.dev.yml" \
+      -f "$USER_OFFICE_FACTORY_DIR/docker-compose.dev.yml" \
       up -d --build
   ;;
 
